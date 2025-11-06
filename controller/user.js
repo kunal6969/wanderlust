@@ -32,7 +32,7 @@ module.exports.signUp = async(req,res)=>
     req.flash("error" , error.message);
     res.redirect("/signup");
   }
-}
+}//made some changes to the repo
 
 
 module.exports.renderLoginForm = (req,res)=>{
