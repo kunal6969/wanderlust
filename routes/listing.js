@@ -10,8 +10,8 @@ const {storage} = require("../CloudConfig.js");
 const upload = multer({storage : storage});
 
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
-const mapToken = process.env.MAP_TOKEN
-const geocodingClient = mbxGeocoding({ accessToken: "pk.eyJ1Ijoia3VzaC1iYWphaiIsImEiOiJjbHFneTV0ZXkxYTk5MmtvNm95emJjNGZlIn0.leoeT-6Jq5uyyYUIJZw68g" });
+const mapToken = process.env.MAP_TOKEN;
+const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
 //for error handling
 function wrapAsync(fn) {
@@ -28,7 +28,7 @@ const isLoggedIn =  ((req,res,next)=>{
     if(!req.isAuthenticated())
     {
         req.flash("error" , "You must be logged in!");
-        res.redirect("/login");
+        return res.redirect("/login");
     }
     next();
 });

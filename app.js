@@ -59,6 +59,7 @@ store.on("error" , ()=>{
 
 //session is required to use flash and passport
 app.use(session({
+    store: store,
     secret : process.env.SECRET,
     resave : false,
     saveUninitialized : true,
@@ -100,7 +101,7 @@ main()
 
 async function main()
 {
-    await mongoose.connect('mongodb+srv://Kush:Kush0705@cluster0.fdyqvum.mongodb.net/?retryWrites=true&w=majority');
+    await mongoose.connect(process.env.ATLASDB_URL);
 };
 
 
@@ -125,6 +126,11 @@ function wrapAsync(fn) {
     }
 };
 
+// Root route - redirect to listings
+app.get("/" , (req , res)=>
+{
+    res.redirect("/listings");
+});
 
 //which ever path starts from /listings we should match that with all the paths of the listing file
 //that is inside routes folder
