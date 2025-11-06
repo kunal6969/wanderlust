@@ -104,11 +104,13 @@ async function main()
 };
 
 
-app.listen("8080" , () =>
-{
-    console.log("app is listening to 8080");
-});
-
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+    app.listen("8080" , () =>
+    {
+        console.log("app is listening to 8080");
+    });
+}
 
 // app.get("/" , (req , res)=>
 // {
@@ -171,3 +173,5 @@ app.use((err,req,res,next)=>
     res.status(status).render("listings/error.ejs" , {message});
 });
 
+// Export for Vercel serverless
+module.exports = app;
