@@ -10,7 +10,6 @@ attributionControl: false,
     customAttribution: 'kush bajaj'
     }));
 
-console.log(process.env.MAP_TOKEN);
 // console.log(coordinates);
 // Create a default Marker and add it to the map.
 const marker = new mapboxgl.Marker({color : "red"})

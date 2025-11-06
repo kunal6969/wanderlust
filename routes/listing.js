@@ -152,7 +152,7 @@ router.route("/:id")
 
     listingData.geometry =   response.body.features[0].geometry;
     // console.log(listingData);
-    res.cookie("greet" , "hello");
+    // res.cookie("greet" , "hello");
     res.render("listings/show.ejs" , {listingData});
 }))
 //update route
@@ -334,7 +334,7 @@ router.get("/:id/edit" ,isLoggedIn, isOwner,wrapAsync (async (req,res,next)=>
 
 //update route ---->
 // router.patch("/:id" ,isLoggedIn, wrapAsync(async (req,res,next) =>
-// {
+// { 
 
 // try{
 //         let {id} = req.params;

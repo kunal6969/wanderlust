@@ -49,6 +49,7 @@ function wrapAsync(fn) {
 
 router.post("/" , isLoggedIn, wrapAsync (async(req,res)=>
 {
+    //this id is the listing id-->
     let {id}  = req.params;
     let listing =await Listing.findById(id);
     // console.log(id);
@@ -68,7 +69,7 @@ router.post("/" , isLoggedIn, wrapAsync (async(req,res)=>
     await newReview.save();
     await listing.save();
 
-    console.log("new review added");
+    // console.log("new review added");
     req.flash("sucess" , "New Review Added!!")
     res.redirect(`/listings/${listing._id}`);
 }));

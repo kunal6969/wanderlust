@@ -10,7 +10,7 @@ const exp = require("constants");
 const methodOverride = require('method-override');
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./ExpressError.js");
-const { listingSchema , reviewSchema }= require("./schema.js");
+const { listingSchema , reviewSchema } = require("./schema.js");
 
 
 const listingRouter = require("./routes/listing.js");
@@ -46,7 +46,7 @@ app.use(express.static(path.join(__dirname , "/public")));
 
 
 const store = MongoStore.create({
-    mongoUrl : 'mongodb+srv://Kush:Kush0705@cluster0.fdyqvum.mongodb.net/?retryWrites=true&w=majority',
+    mongoUrl : process.env.ATLASDB_URL,
     crypto:{
         secret : process.env.SECRET,
     },
@@ -136,16 +136,16 @@ app.use("/" , userRouter);
 
 
 
-app.get("/demouser" , async(req,res)=>
-{
-    const fakeUser = new User({
-        email : "stu@gmail.com",
-        username : "kush123",
-    });
+// app.get("/demouser" , async(req,res)=>
+// {
+//     const fakeUser = new User({
+//         email : "stu@gmail.com",
+//         username : "kush123",
+//     });
 
-    const data = await User.register(fakeUser , "Kush@0705");
-    res.send(data);
-});
+//     const data = await User.register(fakeUser , "Kush@0705");
+//     res.send(data);
+// });
 
 
 

@@ -52,9 +52,10 @@ router.route("/login")
     res.render("users/login.ejs");
 })
 .post(
-passport.authenticate("local" , {failureRedirect : "/login" , failureFlash : false}),
+passport.authenticate("local" , {failureRedirect : "/login" , failureFlash : true}),
  async (req,res)=>
 {
+    //it will come inside this only if passport.authenticate returns true
    req.flash("sucess" , "Welcome back to WanderLust . You are Logged in");
    res.redirect("/listings");
 

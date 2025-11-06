@@ -3,9 +3,9 @@
 const coordinates = <%- JSON.stringify(listingData.geometry.coordinates) %>
 </script>
 <body>
-<div class="row">
+    <div class="row">
+        
     <!-- here col-8 means that it will ocuppy 8 columns size in a screen -->
-
     <!-- here offset-3 means that it will get a intial space of 3 columns from left hand side 
     otherwise it will be start from left end of the screen -->
     <div class="col-8 offset-3">
@@ -34,7 +34,8 @@ const coordinates = <%- JSON.stringify(listingData.geometry.coordinates) %>
             <form method="post" action="/listings/<%=listingData._id%>?_method=DELETE">
                 <button class="btn btn-dark offset-4">
                     Delete
-                </button></form>
+                </button>
+            </form>
         </div>
     </div>
 
@@ -81,7 +82,7 @@ const coordinates = <%- JSON.stringify(listingData.geometry.coordinates) %>
     </div>
 
 
-    <%if(listingData.reviews.length) {%>
+    <% if(listingData.reviews.length) { %>
         <hr>
     <div class="row">
         <h4 class="col-8 offset-3 mb-3 mt-3">All Reviews </h4>

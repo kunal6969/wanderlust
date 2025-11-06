@@ -7,7 +7,7 @@ module.exports.craeteReview = async(req,res)=>
     let listing =await Listing.findById(id);
     console.log(id);
 
-    let { rating , comment} = req.body;
+    let { rating , comment } = req.body;
 
     let newReview = new Review({
         rating : rating ,

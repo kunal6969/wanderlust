@@ -53,6 +53,11 @@ const listingSchema = new mongoose.Schema({
 });
 
 
+
+//this is used for handling deletion i.e. when any of the listing is deleted then all the reviews that is 
+//been posted on that listing should automatically get deleted . Here we have used post mongoose middlewae
+//i.e. when ever findByIdAndDelete is used in code then this middleware i.e. findOneAndDelete got 
+//triggers and it deletes all the reviews for that listing
 listingSchema.post("findOneAndDelete" , async (listing)=>
 {
     if(listing.reviews.length)
