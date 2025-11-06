@@ -1,5 +1,5 @@
 {
-  "engines": {"node" : "18.17.1"},
+  "engines": {"node" : "22.x"},
   "name": "delta_project",
   "version": "1.0.0",
   "description": "",
